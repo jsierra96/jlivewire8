@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+//Forma de llamar a los controladores en laravel 8
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index');
+Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::get('curso', [PageController::class, 'course'])->name('course');
 
 Route::middleware([
     'auth:sanctum',
